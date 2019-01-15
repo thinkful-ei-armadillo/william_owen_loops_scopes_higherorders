@@ -65,3 +65,24 @@ const turtleMove = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
 const moves = turtleMove.filter((move) => (move[0] >= 0 && move[1] >= 0))
    .map(item => item[0] + item[1])
    .forEach(item => console.log(item));
+
+
+const input = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
+const listInput = input.split(' ');
+console.log(listInput);
+const reducedInput = listInput.reduce((acc, word) => (word.length === 3 ? acc+= " " : acc+=word[word.length-1].toUpperCase()), " ");
+
+// const reducedInput = listInput.reduce(iterator, "")
+
+function iterator(acc, word) {
+    if (word.length === 3) {
+         acc += " ";
+    }
+    else {
+        acc += word[word.length-1].toUpperCase();
+    }
+    return acc
+}
+
+
+console.log(reducedInput);
