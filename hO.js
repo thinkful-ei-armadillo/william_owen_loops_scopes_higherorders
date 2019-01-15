@@ -60,3 +60,8 @@ mudslideWarning('Centinela Ave and Olympic Blvd');
 tornadoWarning('Centinela Ave and Olympic Blvd');
 
 
+const turtleMove = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+
+const moves = turtleMove.filter((move) => (move[0] >= 0 && move[1] >= 0))
+   .map(item => item[0] + item[1])
+   .forEach(item => console.log(item));
