@@ -2,10 +2,12 @@
 function max(numbers) {
   // your code here
   let most = numbers[0];
-  for (let i = 0; i < numbers.length; i++ ) {
+  let i = 0;
+  while (i < numbers.length){
     if (numbers[i] > most) {
       most = numbers[i];
     }
+    i++;
   }
   return most
 }  
@@ -13,10 +15,12 @@ function max(numbers) {
 function min(numbers) {
   // your code here
   let least = numbers[0];
-  for (let i = 0; i < numbers.length; i++ ) {
+  let i = 0;
+  while (i < numbers.length){
     if (numbers[i] < least) {
       least = numbers[i];
     }
+    i++;
   }
   return least
 }
