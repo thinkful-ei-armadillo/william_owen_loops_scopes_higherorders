@@ -37,5 +37,26 @@ const filteredNames = filter(myNames, function(name) {
 const filterName = filter(myNames, name => name[0] === 'R')
 console.log(filterName) // => ['Rich', 'Ray']
 
+function hazardWarningCreator(typeOfWarning) {
+    let warningCounter = 0;
+    return location => {
+        warningCounter++;
+        warningCounter === 1 ? console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time today!`) : console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} times today!`);
+        // console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
+        // console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} time(s) today!`);
+    }
+}
+
+const rocksWarning = hazardWarningCreator('Rocks on the Road');
+const mudslideWarning = hazardWarningCreator('MUDSLIDE!');
+const tornadoWarning = hazardWarningCreator('TORNADO!');
+
+rocksWarning('Centinela Ave and Olympic Blvd');
+mudslideWarning('Centinela Ave and Olympic Blvd');
+tornadoWarning('Centinela Ave and Olympic Blvd');
+
+rocksWarning('Centinela Ave and Olympic Blvd');
+mudslideWarning('Centinela Ave and Olympic Blvd');
+tornadoWarning('Centinela Ave and Olympic Blvd');
 
 
