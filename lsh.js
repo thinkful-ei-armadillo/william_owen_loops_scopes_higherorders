@@ -1,28 +1,11 @@
-"use strict";
-function max(numbers) {
-  // your code here
-  let most = numbers[0];
-  let i = 0;
-  while (i < numbers.length){
-    if (numbers[i] > most) {
-      most = numbers[i];
-    }
-    i++;
-  }
-  return most
-}  
-
-function min(numbers) {
-  // your code here
-  let least = numbers[0];
-  let i = 0;
-  while (i < numbers.length){
-    if (numbers[i] < least) {
-      least = numbers[i];
-    }
-    i++;
-  }
-  return least
+function average(numbers) {
+  // your code goes here
+  let sum = 0;
+  numbers.forEach(item => sum += item)
+  // for (let i = 0; i < numbers.length; i++) {
+  //   sum = sum + numbers[i];
+  // }
+  return sum/numbers.length;
 }
 
 /* From here down, you are not expected to 
@@ -54,36 +37,16 @@ function testFunctionWorks(fn, input, expected) {
   }
 }
 
-function testEmpty(fn) {
-  if (fn([]) === null || fn([]) == undefined) {
-    console.log(`SUCCESS: ${fn.name} works on empty arrays`);
-    return true;
-  } else {
-    console.log(
-      `FAILURE: ${fn.name} should return undefined or null for empty arrays`
-    );
-    return false;
-  }
-}
-
 (function runTests() {
-  // we'll use the variables in our test cases
-  const numList1 = [-5, 28, 98, -20013, 0.7878, 22, 115];
-  const realMin1 = numList1[3];
-  const realMax1 = numList1[6];
-  const numList2 = [0, 1, 2, 3, 4];
-  const realMin2 = numList2[0];
-  const realMax2 = numList2[4];
+  const numList1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const correctAns1 = 5.5;
+  const numList2 = [0, -1, 1];
+  const correctAns2 = 0;
 
   const testResults = [
-    testFunctionWorks(max, numList1, realMax1),
-    testFunctionWorks(max, numList2, realMax2),
-    testFunctionWorks(min, numList1, realMin1),
-    testFunctionWorks(min, numList2, realMin2),
-    testEmpty(max),
-    testEmpty(min),
+    testFunctionWorks(average, numList1, correctAns1),
+    testFunctionWorks(average, numList2, correctAns2),
   ];
-
   const numPassing = testResults.filter(function(result) {
     return result;
   }).length;
