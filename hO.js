@@ -119,18 +119,21 @@ const contacts = [
 function lookUpProfile(name, prop) {
 // MENTOR GUIDED SOLUTION: MAIN DIFFERENCE THAT IT ASKS EACH ENTRY IF IT IS THE NAME,
 // IF NOT, IT CHECKS NEXT ENTRY, NO OUTPUT UNTIL THE FOR LOOP HAS CHECKED THE ENTIRE CONTACT DATABASE
-    for(contact in contacts) {
-      if(contact.first == name){
-        if(contact.hasOwnProperty(prop)){
-          return contact[prop];
+    for(let i in contacts) {
+        console.log(i, contacts[i].firstName); //report index + contacts[index].property
+        if(contacts[i].firstName == name){
+            if(contacts[i].hasOwnProperty(prop)){
+                return contacts[i][prop];
+            }
+            else {
+                return 'No Such Property';
+            }
         }
-        else {
-          return 'No Such Property';
-        }
-      }
     }
-    return 'No Such Contact';
-  }
+    return 'No Such Contact' //this return needs to be outside the for loop,
+    // the program doesnt arrive at line 133 until the entire index has been checked for matching name
+    // and if it finds the name, the function will terminate at the return line.
+}
 //   TERNARY ATTEMPT AT SOLUTION, W/O UNDERSTANDING FOR..IN LOOP
 //  for (let element in contacts) {
 //    return name !== contacts[i].firstName) && contacts[i].prop === undefined) ? element.[prop]
@@ -160,5 +163,5 @@ function lookUpProfile(name, prop) {
 
 // Only change code above this line
 // Change these values to test your function
-console.log(lookUpProfile("Akira", "likes"));
-// console.log(lookUpProfile("Bob", "likes"));
+console.log(lookUpProfile("Kristian", "lastName"));
+console.log(lookUpProfile("Bob", "likes"));
